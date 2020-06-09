@@ -1,0 +1,64 @@
+ 
+.container.main{
+    margin-top: 7.0em;
+}
+
+ #delete{
+     display: inline;
+ }
+ 
+ #navbar{
+     float:right;
+ }
+
+ #titleblog{
+    font-family: 'Lalezar', cursive;
+    font-weight: 800;
+    font-size: 6em;
+    text-decoration: none;
+   color: black;
+ }
+ a:link{
+    
+    text-decoration: none;
+    }
+ #fontpost{
+    font-family: 'Lalezar', cursive;
+ }
+
+ #textpost{
+    font-family: 'Arvo', serif;
+ }
+
+ .btn-facebook {
+   background: #3b579d;
+   color: #ffffff
+}
+
+#footer{
+    z-index:-9999;
+}
+
+#logiform{
+   width: 500px;
+}
+
+#about{
+    height: 100px;
+ 
+}
+
+#nextprevious{
+    float: right;
+}
+
+ #categoryedit{
+     
+     width: 600px;
+     margin-left: 250px ;
+     margin-right: 100px auto;
+      margin-bottom: 300px;
+ }
+
+ 
+ 
