@@ -1,0 +1,58 @@
+<%-include("partials/header") %>
+ 
+         <!-- Page Header -->
+  <header class="masthead" style="background-image: url('<%= blog.image %>')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1><%= blog.title %></h1>
+           
+            <span class="meta">Posted by
+              <a href="/about">DrienTech</a>
+              <%= moment(blog.created).fromNow() %> </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+       <% if(!currentUser){ %>
+        <%} else{ %> 
+        <a href="/blog/<%= blog.slug %>/edit"class="btn btn-warning"  >Edit</a>
+        <form id="delete" action="/blog/<%= blog.slug %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Remove</button>
+        </form>
+      <% } %> 
+          <p>  <%- blog.body %>  </p>
+ 
+        </div>
+      </div>
+       <!-- Button previous & next  -->
+      <% if (previousBlog) { %>
+        <a  class=" text-right" href="/blogs/<%= previousBlog.slug %>">Go To Previous</a>
+        <% } else { %>
+        <a  class="text-right " href="#" disabled>Go To Previous</a>
+        <% } %>
+          
+        <% if (nextBlog) { %>
+        <a id="nextprevious"class="text-right" href="/blogs/<%= nextBlog.slug %>">Go To Next</a>
+        <% } else { %>
+        <a id="nextprevious"class="text-right" href="#"  disabled>Go To Next</a>
+        <% } %>
+
+    </div>
+     
+  </div>
+        
+  </article>
+ 
+<%-include("partials/footer") %>

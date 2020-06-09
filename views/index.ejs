@@ -1,0 +1,63 @@
+<%- include("partials/header") %> 
+<header class="masthead" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Where do you want to go today?</h1>
+          <form   action="/blog" method="GET" class="form-group mt-3 ">
+            <input class="form-control  mr-sm-2" type="search"  name="search" placeholder="Search" aria-label="Search">
+            <input type="submit" value="Search" class="btn btn-light mt-3">
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</header>
+<% blogs.forEach(function (blog) {  %>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <a href="/blog/<%= blog.slug %>">
+          <h2 class="post-title">
+            <%= blog.title %>
+          </h2>
+            <h3 class="post-subtitle"><%- blog.body.substring(0,100) %>... </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="/about">DrienTech</a>
+          <%= moment(blog.created).fromNow() %></p>
+          <a href="/blog/<%= blog.slug %> " class="large ui button">Read More <i class="angle right icon"></i> </a>  
+      </div>
+     
+         </div>
+  </div>
+</div>
+
+      <%})%> 
+
+       
+      <!-- Pager -->
+       
+ 
+ 
+<div class="col-md-12">
+  <% if(noMatch !== null) { %>
+  <h3><%= noMatch %></h3>
+  <p>
+   <form action="/blog" method="GET" class="form-inline">
+     <div class="form-group">
+       <input type="text" name="search" placeholder="Blogs search..." class="form-control">
+       <input type="submit" value="Search" class="btn btn-default">
+     </div>
+   </form>
+ </p>
+  <% } %>
+</div>
+   
+ 
+<%- include("partials/footer") %> 

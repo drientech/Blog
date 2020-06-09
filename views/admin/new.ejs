@@ -1,0 +1,43 @@
+<%-include("../partials/adminHead") %>
+<script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+
+<hr>
+<div class="container card p-0"> 
+    <h2 class="card bg-dark text-white p-3">Add post</h2>
+      <div  class="card-body"  >
+        
+
+      <form class="form-group" action="/blog" method="POST">
+        <div class="form-group">
+            <label >Title</label>
+            <input type="text" name="blog[title]" class="form-control"   placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label >Image</label>
+            <input type="text" class="form-control"  name="blog[image]"  placeholder="Image">
+        </div>
+        <div class="form-group">
+            <label >Category</label>
+            <select   name="blog[category]" class="form-control" id="exampleFormControlSelect1">
+                <% category.forEach( function(cat){ %>
+                    <option > <%= cat.title %>    </option>   
+           <% }); %> 
+                
+         
+            </select>
+          </div>
+        <div class="form-group">
+            <label >Description</label>
+            <textarea class="form-control"  name="blog[body]"  ></textarea>
+        </div>
+        
+        <button class="btn btn-primary">Post</button>
+    </form>
+</div>
+</div>
+<script>
+    CKEDITOR.replace( 'blog[body]' );
+</script>
+
+
+<%-include("../partials/adminFooter") %>

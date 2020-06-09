@@ -1,0 +1,21 @@
+<%-include("../partials/adminHead") %>
+ 
+<div class="container card mt-5 mb-5 p-0" > 
+      <h2 class="card bg-dark text-white p-3 ">Add New Category</h2>
+      <form class="card-body"  action="/category/new" method="POST">
+        <div class="form-group">
+            <label >Category</label>
+            <input type="text" class="form-control "   name="category[title]"  placeholder="category">
+        </div>
+        <div class="form-group">
+            <label >Category</label>
+            <input type="text" class="form-control "   name="category[image]"  placeholder="img">
+        </div>
+     
+        
+        <button class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+
+<%-include("../partials/adminFooter") %>

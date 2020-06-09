@@ -1,0 +1,37 @@
+<%-include("../partials/adminHead") %>
+
+<div class="container card p-0 mb-5">  
+<h2 class="card bg-dark text-white p-3 m-0">All message</h2>
+    <table class="table table-striped">
+    
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% form.forEach(function(form){ %>
+            <tr>
+                <td><%= form.name %></td>
+                <td><%= form.email %></td>
+                <td><%= form.subject %></td>
+                <td><%= form.message %></td>
+                <td>  <form id="delete" action="/contact/<%= form._id %> ?_method=DELETE" method="POST">
+                    <button class="btn btn-link">Remove</button>
+                </form>  </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    </div>
+
+
+
+
+
+    <%-include("../partials/adminFooter") %>

@@ -1,0 +1,39 @@
+<%- include("partials/header") %> 
+<header class="masthead" style="background-image: url('')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+      
+        <div class="site-heading">
+          <h1> Category: <%= category%>  </h1>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</header>
+<% post.forEach(function (blog) {  %>
+  
+<div class="container">
+
+  <div class="row justify-content-center">
+
+        <div id="fontpost" > 
+      <h1  class="mt-4"><a class="header" href="/blogs/<%= blog.slug %> " >  <%= blog.title %> </a></h1>
+ 
+      <p class="text-muted">Posted on <%= blog.created.toDateString()%></p>
+      <p class="text-muted">Category <%= blog.category%></p>
+          <p class="lead"><%- blog.body.substring(0,100) %>...</p>
+      <a href="/blogs/<%= blog.slug %> " class="large ui button">Read More <i class="angle right icon"></i> </a> </p>
+ 
+      <%})%> 
+
+</div>
+   
+    
+    </div>
+    
+    </div>
+<%-include("partials/footer") %> 
